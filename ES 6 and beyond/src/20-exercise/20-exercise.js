@@ -9,7 +9,7 @@
  * 2. The class should use the constructor method to receive
  *    the parameters for when a new instance of the class
  *    is created.
- *
+ * 
  * 3. Once you have created the Person class, you should
  *    create a new person using the `new Person(...)`
  *    expression. Then, you should store the newly created
@@ -25,15 +25,24 @@
  */
 
 // Create the Person class
-class Person {}
+class Person {
+    constructor (firstName, lastName){
+        this.firstName = firstName
+        this.lastName = lastName
 
+    }
+
+sayName() {
+    return this.firstName + " " + this.lastName
+    }
+}
 // Create a new instance of the class with the arguments:
 //
 // firstName: "Ana"
 // lastName: "Spark"
 //
 // Store the new instance in the `ana` variable
-let ana = "";
+let ana = new Person ("Ana", "Spark");
 
 // Don’t change the code bellow this line
 export { Person, ana };
