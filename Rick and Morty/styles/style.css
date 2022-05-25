@@ -252,7 +252,7 @@ h2{
 }
 
 #buttonLocation{
-    background-color: #8fa500;
+    background-color: lightpink;
     color: #000000;
     width: 80%;
     height: 30px;
@@ -271,9 +271,9 @@ h2{
     grid-row-gap: 10px;
   }
   
-  .numberEpisode {
+  .episodeData {
     box-shadow: 3px 3px 3px 3px #0000003b;
-    background: #cffdff;
+    background: lightskyblue;
     border-radius: 4px;
     font-size: large;
     padding: 5px;

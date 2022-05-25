@@ -59,6 +59,7 @@ function createEpisodeLink(episode) {
     parent.appendChild(div);
   }
   function renderCharacterThumbnail(parent, character) {
+    parent.addEventListener("click", () => showCharacterThumbnail(character));
     parent.innerHTML = `<img src=${character.image}>` +
     `<h4>${character.name}</h4>` +
     `<h5>${character.species} | ${character.status}</h5>`
@@ -66,7 +67,7 @@ function createEpisodeLink(episode) {
 function showCharacterThumbnail(character){
     const main = document.querySelector("#main");
     main.innerHTML =
-`<div><div class="characterThumbnailHeader">
+`<div><div class="characterThumbnailDetailHeader">
     <div><img src=${character.image}></div>
     <div><h2>${character.name}</h2>` +
     `<h3>${character.status} | ${character.specie} | ${character.gender} | ${character.origin.name} </h3>
@@ -74,8 +75,8 @@ function showCharacterThumbnail(character){
     <div class="characterThumbnailDetail"></div>
     </div> `;
 
-    const locationButton = document.querySelector("#buttonLocation");
-    locationButton.addEventListener("click", () => renderLocation(character.origin.url));
+    const buttonLocation = document.querySelector("#buttonLocation");
+    buttonLocation.addEventListener("click", () => renderLocation(character.origin.url));
     console.log(character.origin.name);
 
     character.episode.forEach((episode) => {
@@ -86,7 +87,7 @@ function showCharacterThumbnail(character){
             const characterThumbnailEpisodesDetail = document.createElement("div");
             characterThumbnailEpisodesDetail.className = "characterThumbnailEpisodesDetail";
             characterThumbnailEpisodes.appendChild(characterThumbnailEpisodesDetail);
-            characterThumbnailEpisodesDetail.innerHTML = `<div class="numberEpisode"><h3>Episode - ${episodes.id}</h3><h4 class="title">${episodes.episode}</h4></div>`;
+            characterThumbnailEpisodesDetail.innerHTML = `<div class="episodeData"><h3>Episode - ${episodes.id}</h3><h4 class="title">${episodes.episode}</h4></div>`;
             characterThumbnailEpisodesDetail.onclick = () => showEpisodeDetail(episodes);
           });
       });
@@ -121,6 +122,7 @@ function showCharacterThumbnail(character){
         episodeData.innerText = episode;
         return episodeData;
       }
+
   buildRoot()
   loadEpisodes()
 
